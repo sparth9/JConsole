@@ -13,7 +13,7 @@ class PWDCommand extends ConsoleCommand {
   }
 
 	public void execute(String[] args) throws CommandFailedException {
-    Console.out.println( super.getCurrentDir().getAbsolutePath() );	
+    System.out.println( super.getCurrentDir().getAbsolutePath() );	
   }
 
 	protected void initialize() throws Exception {

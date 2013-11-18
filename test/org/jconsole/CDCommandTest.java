@@ -55,7 +55,7 @@ public class CDCommandTest {
 		}
 	}
 	
-	@Test //move one level up
+	@Test //move one level up CD..
 	public void TestExecuteOneLevelUp()
 	{
 		try {
@@ -93,7 +93,7 @@ public class CDCommandTest {
 	public void TestExecuteInvalidInput()
 	{
 		try {
-			String [] args1 = {"nakul"};
+			String [] args1 = {"psedo"};
 			cdCom.execute(args1);
 			fail("Exception was not thrown");
 			} 

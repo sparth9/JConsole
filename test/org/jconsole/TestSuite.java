@@ -9,9 +9,12 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	LSCommandTest.class,
+	PWDCommandTest.class,
+	HelpCommandTest.class,
 	CDCommandTest.class,
 	CPCommandTest.class,
-	MKDIRCommandTest.class
+	MKDIRCommandTest.class,
+	RMDIRCommandTest.class
 })
 
 public class TestSuite {

@@ -15,20 +15,20 @@ class HelpCommand extends ConsoleCommand {
 
 	public void execute(String[] args) throws CommandFailedException {
 		if (args == null || args.length == 0) {
-			Console.out.println("The following commands are installed:");
+			System.out.println("The following commands are installed:");
 			List l = super.getAllCommandsList();
 			for (Iterator i = l.iterator(); i.hasNext(); ) {
 				ConsoleCommand cmd = (ConsoleCommand) i.next();
-				Console.out.println(cmd.getName() + "\t- " + cmd.getShortDescription());
+				System.out.println(cmd.getName() + "\t- " + cmd.getShortDescription());
 			}
-			Console.out.println("");
+			System.out.println("");
 			return;
 		}
 
 		ConsoleCommand cmd = super.getCommand(args[0]);
-		Console.out.println("Help topic for - " + cmd.getName());
-		Console.out.println(cmd.getHelp());
-		Console.out.println("");
+		System.out.println("Help topic for - " + cmd.getName());
+		System.out.println(cmd.getHelp());
+		System.out.println("");
 	}
 
 	public void initialize() throws Exception {}

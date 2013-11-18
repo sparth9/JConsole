@@ -77,7 +77,7 @@ class LSCommand extends ConsoleCommand {
 				if (echo) {
 					int fileLen = ((int)currFile.length()/1024) + (currFile.length()%1024==0?0:1) ;
 					
-					Console.out.println(Utilities.Pad(listNo+1 + "", 5, Utilities.PAD_RIGHT) +  // fileNo
+					System.out.println(Utilities.Pad(listNo+1 + "", 5, Utilities.PAD_RIGHT) +  // fileNo
 														Utilities.Pad( currFile.getName() , 30, Utilities.PAD_RIGHT) + // file name
 														Utilities.Pad(currFile.isDirectory() ? "< DIR >" : fileLen + "KB", 15, Utilities.PAD_LEFT) + "  " + // <DIR>/size
 														m_dateFormatter.format( new Date(currFile.lastModified()) ) ); // date

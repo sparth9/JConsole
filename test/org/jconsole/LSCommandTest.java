@@ -17,18 +17,16 @@ public class LSCommandTest {
 	static LSCommand LSCom = new LSCommand();
 	static String curDir = System.getProperty("user.dir");
 	
+	
 	@Before
 	public void setUpStreams() {
 	System.setOut(new PrintStream(outContent));
 	System.setErr(new PrintStream(errContent));
+	JConsole jcon=JConsole.instance();
+	jcon.setCurrentDir(curDir);
+	LSCom.setConsole(jcon);
 	}
 	
-	@Before
-	public void setup(){
-		JConsole jcon=JConsole.instance();
-		jcon.setCurrentDir(curDir);
-		LSCom.setConsole(jcon);
-	}
 	
 	@Test
 	public void LSComTest()
@@ -45,5 +43,4 @@ public class LSCommandTest {
 		}
 		outContent.reset();
 	}
-
 }

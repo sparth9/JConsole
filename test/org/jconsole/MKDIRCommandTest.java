@@ -2,6 +2,8 @@ package org.jconsole;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,10 +11,10 @@ public class MKDIRCommandTest {
 
 	static String myDir = System.getProperty("user.dir");
 	MKDIRCommand mkCom = new MKDIRCommand();
+	JConsole jcon=JConsole.instance();
 	
 	@Before
 	public void setup(){
-		JConsole jcon=JConsole.instance();
 		jcon.setCurrentDir(myDir);
 		mkCom.setConsole(jcon);
 	}
@@ -20,10 +22,9 @@ public class MKDIRCommandTest {
 	@Test
 	public void TestExecuteNullInput()			//mkdir given with null argument 
 	{
-		MKDIRCommand mc=new MKDIRCommand();
 		String [] args1=null;
 		try {
-			mc.execute(args1);
+			mkCom.execute(args1);
 			fail("Exception was not thrown");
 		} catch (CommandFailedException e) {
 			e.printStackTrace();
@@ -33,10 +34,14 @@ public class MKDIRCommandTest {
 	@Test
 	public void TestExecuteValidInput()
 	{
-		MKDIRCommand mc=new MKDIRCommand();
-		String [] args2={"testResource"};
+		File f = new File(myDir + "/testResource2");
+		String [] args2={"testResource2"};
 		try {
-			mc.execute(args2);
+			if(f.exists())
+				f.delete();
+			mkCom.execute(args2);
+			if(!f.exists())
+				fail("File not created");
 		} catch (CommandFailedException e) {
 			fail("Exception was thrown");
 			e.printStackTrace();
